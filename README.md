@@ -13,6 +13,7 @@ npm run build
 The compiled files will appear in the `dist/` directory and `main.js` will also
 be copied to the repository root.
 
+
 ## Installing via BRAT
 
 This repository is compatible with the [BRAT](https://github.com/TfTHacker/obsidian42-brat) plugin.
