@@ -6,7 +6,6 @@ This is a minimal Obsidian community plugin that adds a command to display a `No
 
 Run `npm install` once to install dependencies. After making changes, compile the plugin with:
 
-
 ```bash
 npm run build
 ```
