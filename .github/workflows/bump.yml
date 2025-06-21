@@ -38,11 +38,14 @@ jobs:
           fs.writeFileSync('manifest.json', JSON.stringify(manifest, null, 2) + '\n');
           NODE
 
-      - name: Commit and push with tag
+      - name: Pull latest, commit and push with tag
         run: |
           git config user.name "${{ github.actor }}"
           git config user.email "${{ github.actor }}@users.noreply.github.com"
+
+          # 🔁 Важно: до любых изменений
           git pull --rebase origin main
+
           git add manifest.json dist/main.js
           git commit -m "chore: bump manifest version"
           git push origin main
