@@ -1,0 +1,13 @@
+{
+  "name": "exo-hello-notice",
+  "version": "0.0.1",
+  "description": "Obsidian plugin that shows a Hello notice.",
+  "scripts": {
+    "build": "tsc -p ."
+  },
+  "devDependencies": {
+    "obsidian": "^1.5.11",
+    "typescript": "^5.0.4",
+    "@types/node": "^18.17.17"
+  }
+}
