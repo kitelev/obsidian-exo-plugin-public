@@ -1,0 +1,10 @@
+{
+  "id": "hello-plugin",
+  "name": "Hello Plugin",
+  "version": "0.0.1",
+  "minAppVersion": "0.15.0",
+  "description": "A simple plugin that shows a Hello World notice",
+  "author": "Example",
+  "authorUrl": "https://example.com",
+  "main": "dist/main.js"
+}
