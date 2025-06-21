@@ -60,5 +60,6 @@ jobs:
           name: Release ${{ steps.tag.outputs.tag }}
           body: |
             ✅ Manual release triggered by ${{ github.actor }}
+          files: release/plugin.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
