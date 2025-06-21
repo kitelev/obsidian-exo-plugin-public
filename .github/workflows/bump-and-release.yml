@@ -4,7 +4,7 @@ on:
   push:
     branches: [main]
     tags:
-      - '*'  # триггерится также на push любого тега
+      - '*'  # Триггер на любой тег
 
 permissions:
   contents: write
@@ -13,6 +13,7 @@ jobs:
   bump:
     if: github.actor != 'github-actions[bot]'
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v3
 
@@ -44,9 +45,17 @@ jobs:
         with:
           add: 'manifest.json dist/main.js'
           message: 'chore: bump manifest version'
+          push: false
 
-      - name: Create and push tag
+      - name: Pull latest and push changes with tag
         run: |
+          git config user.name "${{ github.actor }}"
+          git config user.email "${{ github.actor }}@users.noreply.github.com"
+
+          git pull --rebase origin main
+
+          git push origin main
+
           version=$(node -p "require('./manifest.json').version")
           git tag "v$version"
           git push origin "v$version"
