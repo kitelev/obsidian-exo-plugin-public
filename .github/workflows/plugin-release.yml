@@ -66,14 +66,3 @@ jobs:
           cp dist/main.js manifest.json release/
           cd release
           zip plugin.zip main.js manifest.json
-      - name: Create GitHub release
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          TAG=${GITHUB_REF#refs/tags/}
-          gh release create "$TAG" \
-            --title "$TAG" \
-            --notes "Automated release for $TAG" \
-            release/plugin.zip \
-            release/main.js \
-            release/manifest.json
