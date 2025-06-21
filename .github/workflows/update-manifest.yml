@@ -1,0 +1,41 @@
+name: Bump manifest version
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  bump:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18.x'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build plugin
+        run: npm run build
+
+      - name: Bump version in manifest
+        run: |
+          node - <<'NODE'
+          const fs = require('fs');
+          const manifest = JSON.parse(fs.readFileSync('manifest.json', 'utf8'));
+          const parts = manifest.version.split('.').map(n => parseInt(n, 10));
+          while (parts.length < 3) parts.push(0);
+          parts[2] = (parts[2] || 0) + 1;
+          manifest.version = parts.join('.');
+          fs.writeFileSync('manifest.json', JSON.stringify(manifest, null, 2) + '\n');
+          NODE
+
+      - name: Commit changes
+        uses: EndBug/add-and-commit@v9
+        with:
+          add: 'manifest.json main.js dist/main.js'
+          message: 'chore: bump manifest version'
