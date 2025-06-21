@@ -42,3 +42,9 @@ jobs:
         with:
           add: 'manifest.json main.js dist/main.js'
           message: 'chore: bump manifest version'
+
+      - name: Create tag for release
+        run: |
+          version=$(node -p "require('./manifest.json').version")
+          git tag "v$version"
+          git push origin "v$version"
