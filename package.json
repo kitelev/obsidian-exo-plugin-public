@@ -3,7 +3,8 @@
   "version": "0.0.1",
   "description": "Obsidian plugin that shows a Hello notice.",
   "scripts": {
-    "build": "tsc -p ."
+    "build": "tsc -p . && cp dist/main.js main.js",
+    "dev": "tsc -watch -p . && cp dist/main.js main.js"
   },
   "devDependencies": {
     "obsidian": "^1.5.11",
