@@ -2,7 +2,6 @@
 
 This is a minimal Obsidian community plugin that adds a command to display a `Notice` with the text `Hello!`.
 
-
 ## Building
 
 Run `npm install` once to install dependencies. After making changes, compile the plugin with:
