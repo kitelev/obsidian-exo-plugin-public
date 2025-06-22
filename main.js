@@ -1,10 +1,13 @@
-import { Plugin, Notice } from 'obsidian';
-export default class HelloNoticePlugin extends Plugin {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const obsidian_1 = require("obsidian");
+class HelloNoticePlugin extends obsidian_1.Plugin {
     async onload() {
         this.addCommand({
             id: 'show-hello-notice',
             name: 'Show Hello Notice',
-            callback: () => new Notice('Hello!'),
+            callback: () => new obsidian_1.Notice('Hello!'),
         });
     }
 }
+exports.default = HelloNoticePlugin;
