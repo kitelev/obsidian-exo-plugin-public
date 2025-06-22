@@ -6,7 +6,7 @@ class HelloNoticePlugin extends obsidian_1.Plugin {
         this.addCommand({
             id: 'show-hello-notice',
             name: 'Show Hello Notice',
-            callback: () => new obsidian_1.Notice('Hello!'),
+            callback: () => new obsidian_1.Notice('Hello World!'),
         });
     }
 }
