@@ -1,7 +1,7 @@
 {
   "id": "exo-hello-notice",
   "name": "Hello Notice",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "minAppVersion": "0.13.0",
   "description": "Adds a command that shows a Hello notice.",
   "author": "Example Author",
